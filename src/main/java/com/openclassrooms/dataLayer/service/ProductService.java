@@ -21,8 +21,18 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-    // on ajoute une méthode addCategory dans la classe CategoryService
-    public Product addProduct(Product product) {
+    public Iterable<Product> getProductsByName(String name) {
+        return productRepository.findByName(name);
+    }
+
+    public Product saveProduct(Product product) {
         return productRepository.save(product);
+    }
+
+    public void deleteProductById(Integer id) {
+        productRepository.deleteById(id);
+    }
+
+    public void addProduct(Product existingProduct) {
     }
 }
